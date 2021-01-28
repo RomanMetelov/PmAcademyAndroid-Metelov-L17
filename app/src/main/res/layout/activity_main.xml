@@ -1,18 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:context=".MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv1cat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cat"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/barrier1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:barrierDirection="top"
+            app:constraint_referenced_tags="FIRST_LEVEL" />
+
+        <TextView
+            android:id="@+id/tv2me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Me"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
+            app:layout_constraintEnd_toStartOf="@id/tv3sister"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barrier1" />
+
+        <TextView
+            android:id="@+id/tv3sister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sister"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv2me"
+            app:layout_constraintTop_toBottomOf="@+id/barrier1" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:barrierDirection="top"
+            app:constraint_referenced_tags="SECOND_LEVEL" />
+
+        <TextView
+            android:id="@+id/tv4mother"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mother"
+            android:layout_margin="8dp"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier2"
+            app:layout_constraintEnd_toStartOf="@id/tv5uncle"
+            app:layout_constraintBottom_toTopOf="@id/barrier3"/>
+
+        <TextView
+            android:id="@+id/tv5uncle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Uncle"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toTopOf="@id/barrier3"
+            app:layout_constraintTop_toBottomOf="@id/barrier2"
+            app:layout_constraintStart_toEndOf="@+id/tv4mother"
+            app:layout_constraintEnd_toStartOf="@+id/tv6father" />
+
+        <TextView
+            android:id="@+id/tv6father"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Father"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toTopOf="@id/barrier3"
+            app:layout_constraintTop_toBottomOf="@id/barrier2"
+            app:layout_constraintStart_toEndOf="@+id/tv5uncle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:barrierDirection="top"
+            app:constraint_referenced_tags="THIRD_LEVEL" />
+
+        <TextView
+            android:id="@+id/tv7mGm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mGm"
+            android:layout_margin="8dp"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier3"
+            app:layout_constraintBottom_toTopOf="@+id/barrier4"
+            app:layout_constraintEnd_toStartOf="@+id/tv8mGmBrother"/>
+
+        <TextView
+            android:id="@+id/tv8mGmBrother"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mGmBrother"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/barrier3"
+            app:layout_constraintBottom_toTopOf="@+id/barrier4"
+            app:layout_constraintStart_toEndOf="@+id/tv7mGm"
+            app:layout_constraintEnd_toStartOf="@+id/tv9mGf"/>
+
+        <TextView
+            android:id="@+id/tv9mGf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mGf"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/barrier3"
+            app:layout_constraintBottom_toTopOf="@+id/barrier4"
+            app:layout_constraintStart_toEndOf="@+id/tv8mGmBrother"
+            app:layout_constraintEnd_toStartOf="@+id/tv10fGm"/>
+
+        <TextView
+            android:id="@+id/tv10fGm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fGm"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/barrier3"
+            app:layout_constraintBottom_toTopOf="@+id/barrier4"
+            app:layout_constraintStart_toEndOf="@+id/tv9mGf"
+            app:layout_constraintEnd_toStartOf="@+id/tv11fGfSister"/>
+
+        <TextView
+            android:id="@+id/tv11fGfSister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fGfSister"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/barrier3"
+            app:layout_constraintBottom_toTopOf="@+id/barrier4"
+            app:layout_constraintStart_toEndOf="@+id/tv10fGm"
+            app:layout_constraintEnd_toStartOf="@+id/tv12fGf"/>
+
+        <TextView
+            android:id="@+id/tv12fGf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fGf"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/barrier3"
+            app:layout_constraintBottom_toTopOf="@+id/barrier4"
+            app:layout_constraintStart_toEndOf="@+id/tv11fGfSister"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:barrierDirection="top"
+            app:constraint_referenced_tags="THIRD_LEVEL" />
+
+        <TextView
+            android:id="@+id/tv13mGmGm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="mGmGm"
+            app:layout_constraintEnd_toStartOf="@+id/tv14mGmGf"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier4" />
+
+        <TextView
+            android:id="@+id/tv14mGmGf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mGmGf"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/barrier4"
+            app:layout_constraintStart_toEndOf="@+id/tv13mGmGm"
+            app:layout_constraintEnd_toStartOf="@id/tv15mGfGm"/>
+
+        <TextView
+            android:id="@+id/tv15mGfGm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mGfGm"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/barrier4"
+            app:layout_constraintStart_toEndOf="@+id/tv14mGmGf"
+            app:layout_constraintEnd_toStartOf="@id/tv16mGfGf" />
+
+        <TextView
+            android:id="@+id/tv16mGfGf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mGfGf"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/barrier4"
+            app:layout_constraintStart_toEndOf="@+id/tv15mGfGm"
+            app:layout_constraintEnd_toStartOf="@id/tv17fGmGm" />
+
+        <TextView
+            android:id="@+id/tv17fGmGm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fGmGm"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/barrier4"
+            app:layout_constraintStart_toEndOf="@+id/tv16mGfGf"
+            app:layout_constraintEnd_toStartOf="@id/tv18fGmGf" />
+
+        <TextView
+            android:id="@+id/tv18fGmGf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fGmGf"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/barrier4"
+            app:layout_constraintStart_toEndOf="@+id/tv17fGmGm"
+            app:layout_constraintEnd_toStartOf="@id/tv19fGfGm" />
+
+        <TextView
+            android:id="@+id/tv19fGfGm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fGfGm"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/barrier4"
+            app:layout_constraintStart_toEndOf="@+id/tv18fGmGf"
+            app:layout_constraintEnd_toStartOf="@id/tv20fGfGf" />
+
+        <TextView
+            android:id="@+id/tv20fGfGf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="fGfGf"
+            app:layout_constraintTop_toBottomOf="@id/barrier4"
+            app:layout_constraintStart_toEndOf="@+id/tv19fGfGm"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</HorizontalScrollView>
